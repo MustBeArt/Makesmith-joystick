@@ -28,10 +28,10 @@ would go, and connect it via USB according to the microscope's instructions.
 ### Prerequisites
 
 You'll need:
-	* a MakesmithCNC desktop CNC router, assembled and working
-	* a computer with the Arduino development environment on it
-	* a 2-axis analog joystick with a button, like Adafruit #512
-	* some wire
+* a MakesmithCNC desktop CNC router, assembled and working
+* a computer with the Arduino development environment on it
+* a 2-axis analog joystick with a button, like Adafruit #512
+* some wire
 
 ## Author
 
