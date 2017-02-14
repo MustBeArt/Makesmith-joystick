@@ -13,10 +13,8 @@ allow the operator to position the microscope with respect to the work.
 ## Getting Started
 
 Connect a two-axis analog joystick with an integrated pushbutton (I used Adafruit
-product 512) to +5V, GND, A13 (X), A14 (Y), and A15 (button) on the MakesmithCNC's
-Arduino board, as shown here.
-
-![Wiring Photo](/images/wiring.png)
+product 512) to +5V, GND, A15 (X), A14 (Y), and A13 (button) on the MakesmithCNC's
+Arduino board.
 
 Program the Arduino with this sketch. Now the machine is under joystick control.
 Press the button on the joystick to enable X/Y control of the machine. Press the button

@@ -1,8 +1,8 @@
 /*
  * Joystick control of MakesmithCNC
  * 
- * Connect an analog joystick to pins A13 (x) and A14 (y), and a pushbutton
- * (preferably integrated with the joystick) on pin A15.
+ * Connect an analog joystick to pins A15 (x) and A14 (y), and a pushbutton
+ * (preferably integrated with the joystick) on pin A13.
  * 
  * The pushbutton switches between X-Y mode, in which the joystick moves the
  * head around horizontally, and Z mode, in which the joystick moves the head
@@ -21,9 +21,9 @@
 
 #define SERVO_STOPPED 90
 
-#define JOYX    A13
+#define JOYX    A15
 #define JOYY    A14
-#define JOYSW   A15
+#define JOYSW   A13
 
 #define JOYMODE_NONE  0
 #define JOYMODE_XY    1
@@ -49,7 +49,7 @@ void setup(){
 	x.write(SERVO_STOPPED); y.write(SERVO_STOPPED); z.write(SERVO_STOPPED);
 	Serial.println("ready");
 
-	analogReference(EXTERNAL);
+	analogReference(DEFAULT);
 
   pinMode(JOYX, INPUT);
   pinMode(JOYY, INPUT);
@@ -62,7 +62,7 @@ void setup(){
   yzero = analogRead(JOYY);
 
   // Set up the button debouncer
-  joy_button.interval(50);
+  joy_button.interval(5);
   joy_button.attach(JOYSW);
 
 }
@@ -140,7 +140,15 @@ void loop(){
   // Read the joystick, adjust value to center around zero.
   xjoy = analogRead(JOYX) - xzero;
   yjoy = analogRead(JOYY) - yzero;
-  
+
+/*
+  Serial.print("x ");
+  Serial.print(xjoy);
+  Serial.print(", y ");
+  Serial.println(yjoy);
+  delay(250);
+ */
+ 
   if (joystick_mode == JOYMODE_XY) {
     if (abs(xjoy) < xdead) {
        x.write(SERVO_STOPPED);
